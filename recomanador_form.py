@@ -105,27 +105,29 @@ def view(model):
             st.session_state['mostrar_recomanacions']=True  
             st.session_state['idx_recomanacio'] = 0 
 
-    ### Recomanacions        
+    ### Recomanacions     
+    
     if st.session_state['mostrar_recomanacions']:
-        st.session_state['recomanacions'] = model.recomanacions(lector)
-        if len(st.session_state['recomanacions'])==0 :
-            st.subheader(':blue[Amb les dades que em dones, no et puc recomenar cap llibre]')
-        else:
-            st.subheader(':blue[Les teves recomanacions]')
-            index = calcula_index_recomanacions()
-            columnes = st.columns([2,2,2])
-            noms_butons = ['Comprar','Comprar ','Comprar  ']
-            for idx,col,buto in zip(index,columnes,noms_butons):
-                with col:
-                    book = st.session_state['recomanacions'][idx][0]
-                    writer = st.session_state['recomanacions'][idx][1]
-                    st.write(f':red[***#{idx+1} {book}***]')
-                    st.write(f':red[*{writer}*]')
-                    with st.expander('Raonament'):
-                        st.write(st.session_state['recomanacions'][idx][2])
-                    st.button(buto,on_click=comprar_call,args=[idx])
+        with st.container(border=True):
+            st.session_state['recomanacions'] = model.recomanacions(lector)
+            if len(st.session_state['recomanacions'])==0 :
+                st.subheader(':blue[Amb les dades que em dones, no et puc recomenar cap llibre]')
+            else:
+                st.subheader(':blue[Les teves recomanacions]')
+                index = calcula_index_recomanacions()
+                columnes = st.columns([2,2,2])
+                noms_butons = ['Comprar','Comprar ','Comprar  ']
+                for idx,col,buto in zip(index,columnes,noms_butons):
+                    with col:
+                        book = st.session_state['recomanacions'][idx][0]
+                        writer = st.session_state['recomanacions'][idx][1]
+                        st.write(f':red[***#{idx+1} {book}***]')
+                        st.write(f':red[*{writer}*]')
+                        with st.expander('Raonament'):
+                            st.write(st.session_state['recomanacions'][idx][2])
+                        st.button(buto,on_click=comprar_call,args=[idx])
 
-        st.button('Mes Recomanacions',type='primary')
+            st.button('Mes Recomanacions',type='primary')
 
 
 ################ Model ################
