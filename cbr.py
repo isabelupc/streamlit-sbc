@@ -3,12 +3,12 @@ import pandas as pd
 class CBR:
    
     def __init__(self):
-
+        # Llegim els csv
         self.books=pd.read_csv('Books.csv',low_memory=False)
         self.cases=pd.read_csv('Cases.csv')
         self.users=pd.read_csv('Users.csv')
        
-        
+        # Definim les variables d'atributs
         self.genre_options = ['Històrica', 'Ciencia Ficció', 'Comèdia', 'Ficció', 'Romàntica', 'Fantasia', 'Ciència', 'Creixement personal', 'Policiaca', 'Juvenil']
         self.sex_options=['Dona','Home','Altres']
         self.film_options=['Si','No','Indiferent']
@@ -16,7 +16,6 @@ class CBR:
         self.saga_options=['Si','No','Indiferent']
         self.reading_options=['Densa','Fluida','Indiferent']
         self.title = 'Recomanador de Llibres 📚'
-
 
 
 
@@ -51,8 +50,10 @@ class CBR:
 
         # Usuari previament registrat
         try:
-            #ultim cop que l'usuari s'ha registrat
+            # Ultim cop que l'usuari s'ha registrat
             aux = self.cases[self.cases["id_usuari"] == id].tail(1).to_dict(orient='records')[0] 
+
+            # Recuperem les dades de l'ultim cop que ha utilitzat el recomanador
             data['year'] = aux['any_naixement']
             data['sex'] = self.sex_options.index(aux['genere_persona'])
             generes_defecte = []
@@ -69,7 +70,7 @@ class CBR:
             
 
 
-        # Usuari nou
+        # Si es un usuari nou li posem les següents dades per defecte
         except:
             data['year'] = 2000
             data['sex'] = 0
@@ -93,47 +94,47 @@ class CBR:
         configuracio ={'id_usuari':[None], 'id_llibre':[None],'titol':['Titol'],'escrit_per':['Autor'],'score':['Puntuacio']}
         return llegits,configuracio
    
-    # Reguardem el nom si l'usuari el modifica
+    # Re-guardem el nom si l'usuari el modifica
     def change_user_name(self,id,nom):
         self.users.loc[self.users["id_usuari"]==id,'nom'] = nom
         #self.users.to_csv('Users.csv', encoding='utf-8', index=False)
     
     
     def recomanacions(self,user_id,data):
+        # Lineas a descomentar un cop estiguin les funcions programades
+
         #filtre = self.retrieve(lector,data)
         #possibles_llibres = self.reuse(filtre,lector,data)
-        
 
-
-        df = self.books.head(user_id*3).tail(3)
+        # EX SIMULADOR
+        df = self.books.head(user_id*3).tail(3) #me'n torna tres qualsevols
         llista=[]
         for idx,fila in df.iterrows():
-            #lectors = fila['num_lectors']
+            lectors = fila['num_lectures']
             punts = fila['valoracio']
-            # TRAÇA
-            llista.append((fila['titol'],fila['escrit_per'],f'la recomanació es per que aquest llibre te una puntuacio mitjana de {punts:.2f}',
+            # EX TRAÇA
+            llista.append((fila['titol'],fila['escrit_per'],f'La recomanació es perquè aquest llibre té {lectors:.2f} lectors i té una puntuació mitjana de {punts:.2f}',
                           fila['id_llibre'],user_id))
         return llista
 
     
 
-
-    
     ##########################################
     ############## THE FOUR R's ##############
     ##########################################
 
 
     def retrieve(self,user,data):
+        #data es un diccionari amb tots els atributs que ha marcat l'usuari
         #retornar node amb els casos similars
         pass
 
     def reuse(self, filtered_cases, user, data):
         # aplicar funcio de similitud en els casos del node
-        # mes aplicar adaptacio
         pass
 
     def revise(self):
+        # aplicar adaptacio (vigilar que l'usuari no s'hagi llegit aquell llibre)
         pass
     
     def retain(self,user,data,book,rate):
@@ -146,4 +147,6 @@ class CBR:
 
         self.cases.loc[len(self.cases)] = [user,book,rate,data['sex'],data['year'],data['film'],data['bestseller'],
                                            data['reading'],data['saga']]+valors+[data['pages']]
+        
+        # Un cop funcioni el recomenador, amb la seguent linea guardarem els casos al csv permanentment
         #self.cases.to_csv('Cases.csv', encoding='utf-8', index=False)

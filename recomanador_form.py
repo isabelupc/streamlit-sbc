@@ -68,12 +68,12 @@ def view(model):
             st.dataframe(llegits,column_config=new_config,hide_index=True)
    
         with col5:
-            dades['genre']=st.multiselect("Gèneres Literaris ",model.get_genre_options(),default=dades['genre'])
-            dades['film']=st.radio('Vols llibres adaptats al cinema? 🎥',model.get_film_options(),horizontal=True,index=dades['film'])
-            dades['bestseller']=st.radio('Vols un Best Seller? 🎖️',model.get_bestseller_options(),horizontal=True,index=dades['bestseller'])
-            dades['saga']=st.radio("Vols que el llibre formi part d'una saga? ",model.get_saga_options(),horizontal=True,index=dades['saga'])
-            dades['reading']=st.radio('Quin tipus de lectura?',model.get_reading_options(),horizontal=True,index=dades['reading'])
-            dades['pages']=st.number_input('Màxim número de pàgines',0,100000000,dades['pages'])
+            dades['genre']=st.multiselect("Quins són els teus gèneres literaris preferits? ⭐️",model.get_genre_options(),default=dades['genre'])
+            dades['film']=st.radio('Prefereixes llibres adaptats al cinema? 🎥',model.get_film_options(),horizontal=True,index=dades['film'])
+            dades['bestseller']=st.radio('Prefereixes un Best Seller? 🎖️',model.get_bestseller_options(),horizontal=True,index=dades['bestseller'])
+            dades['saga']=st.radio("Prefereixes que el llibre formi part d'una saga? 🎭",model.get_saga_options(),horizontal=True,index=dades['saga'])
+            dades['reading']=st.radio('Quin tipus de lectura prefereixes? 📖',model.get_reading_options(),horizontal=True,index=dades['reading'])
+            dades['pages']=st.number_input('Màxim número de pàgines 📄',0,100000000,dades['pages'])
         
         submitted = st.form_submit_button("Desa Canvis i Recomana",type='primary')
         if submitted:
@@ -112,7 +112,7 @@ def view(model):
                 st.rerun()
 
 
-## el set page s'ha nomes un cop i abans de qualsevol instrucció
+## el set page s'ha de cridar només un cop i abans de qualsevol instrucció
 st.set_page_config( page_title='Llibres',
                     layout="wide",
                     initial_sidebar_state="expanded")
