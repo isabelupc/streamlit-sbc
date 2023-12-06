@@ -95,6 +95,8 @@ def view(model):
                 columnes = st.columns([2,2,2])
                 noms_butons = ['Valora','Valora ','Valora  ']
                 puntuacions=[0,0,0]
+                comprar=[False,False,False]
+                comprar_butons = ['Comprar','Comprar ','Comprar  ']
                 for idx,col in enumerate(columnes):
                     with col:
                         book = st.session_state['recomanacions'][idx][0]
@@ -103,12 +105,17 @@ def view(model):
                         st.write(f':white[*{writer}*]')
                         with st.expander('Raonament'):
                             st.write(st.session_state['recomanacions'][idx][2])
-                        puntuacions[idx] = st.slider(noms_butons[idx],1,5,1)
+                        col1,col2 = st.columns(2)
+                        with col1:
+                            puntuacions[idx] = st.slider(noms_butons[idx],1,5,1)
+                        with col2:
+                            st.write('# ')
+                            comprar[idx] = st.checkbox(comprar_butons[idx])
         
             submitted = st.form_submit_button("Desa Valoracions",type='primary')
             if submitted:
                 for i in range(3):
-                    model.retain(lector,dades,st.session_state['recomanacions'][i][3],puntuacions[i])          
+                    model.retain(lector,dades,st.session_state['recomanacions'][i][3],puntuacions[i],comprar[i])          
                 st.session_state['mostrar_recomanacions']=False 
                 st.rerun()
 

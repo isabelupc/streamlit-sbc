@@ -141,16 +141,19 @@ class CBR:
         # aplicar adaptacio (vigilar que l'usuari no s'hagi llegit aquell llibre)
         pass
     
-    def retain(self,user,data,book,rate):
+    def retain(self,user,data,book,rate,comprat):
         valors=[]
         for columna in self.genre_options:
             if columna in data['genre']:
                 valors.append(1)
             else:
                 valors.append(0)
-
+        if comprat:
+            comp = 'Si'
+        else:
+            comp = 'No'
         self.cases.loc[len(self.cases)] = [user,book,rate,data['sex'],data['year'],data['film'],data['bestseller'],
-                                           data['reading'],data['saga']]+valors+[data['pages']]
+                                           data['reading'],data['saga'],comp]+valors+[data['pages']]
         
 
         valoracio = self.books[self.books['id_llibre'] == book]['valoracio']
