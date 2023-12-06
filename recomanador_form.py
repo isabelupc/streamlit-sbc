@@ -58,14 +58,14 @@ def view(model):
         col4,col5 = st.columns([5,4],gap='small')
         with col4:
             st.write('') 
-            llegits,configuracio = model.read(lector)
+            llegits,no_edit,configuracio = model.read(lector)
             new_config = {}
             for key,value in configuracio.items():
                 if len(value)==1:
                     new_config[key] =value[0]
                 else:
                     new_config[key] = st.column_config.NumberColumn(value[0],min_value=value[1],max_value=value[2],step=1)
-            st.dataframe(llegits,column_config=new_config,hide_index=True)
+            nous_llegits = st.data_editor(llegits,disabled=no_edit,column_config=new_config,hide_index=True)
    
         with col5:
             dades['genre']=st.multiselect("Quins són els teus gèneres literaris preferits? ⭐️",model.get_genre_options(),default=dades['genre'])
@@ -78,6 +78,7 @@ def view(model):
         submitted = st.form_submit_button("Desa Canvis i Recomana",type='primary')
         if submitted:
             model.change_user_name(lector,nom)
+            model.actualitzar_puntuacions(nous_llegits)
             st.session_state['mostrar_recomanacions']=True  
             st.session_state['idx_recomanacio'] = 0 
 
