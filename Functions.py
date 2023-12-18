@@ -10,8 +10,6 @@ import pandas as pd
 import numpy as np
 import pickle
 from graphviz import Digraph
-import networkx as nx
-from networkx.drawing.nx_pydot import graphviz_layout
 from ast import literal_eval
 
 
