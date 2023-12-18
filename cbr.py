@@ -78,8 +78,10 @@ class CBR:
     def add_user(self):
         self.users.loc[self.last_user()] = [self.last_user()+1,'']
     
-    def set_user_name(self,name):
-        self.users.loc[self.last_user()-1] = [self.last_user(),name]
+    # Esborra si no s'ha afegit cap usuari nou
+    def delete_last_if_empty(self):
+        if len(self.users.loc[self.last_user()-1]['nom']) == 0:
+            self.users.drop(self.last_user()-1,inplace=True)
 
     # Recupera les dades del user que està utilitzant el recomanador, per mostrarli un formulari per default amb les seves ultimes preferencies
     def user_data(self,id):
@@ -129,12 +131,12 @@ class CBR:
     # Recuperem els llibres que s'ha llegit l'usuari
     def read(self,id):
         df = self.cases[self.cases['id_usuari'] == id]
-        llegits = pd.merge(df[['id_usuari','score','id_llibre']],self.books[['id_llibre','titol' ,'escrit_per']], on='id_llibre')
+        llegits = pd.merge(df[['id_usuari','score','id_llibre','comprat']],self.books[['id_llibre','titol' ,'escrit_per']], on='id_llibre')
         # Per ordenar les columnes
-        llegits = llegits[['titol', 'escrit_per', 'score','id_llibre','id_usuari']]
-        camps_no_editables =('titol','escrit_per')   
+        llegits = llegits[['titol', 'escrit_per', 'score','comprat','id_llibre','id_usuari']]
+        camps_no_editables =('titol','escrit_per','comprat')   
         # Diccionari amb confirguracio de les columnes: None=no surt, Nom=surt amb aquest nom
-        configuracio ={'id_usuari':[None], 'id_llibre':[None],'titol':['Titol'],'escrit_per':['Autor'],'score':['Puntuacio']}
+        configuracio ={'id_usuari':[None], 'id_llibre':[None],'titol':['Titol'],'escrit_per':['Autor'],'score':['Puntuacio'],'comprat':['Comprat']}
         return llegits,camps_no_editables,configuracio
    
     # Re-guardem el nom si l'usuari el modifica
@@ -199,7 +201,7 @@ class CBR:
 
             
             #print(descripcio_trans)
-            trace_1 = "Basant-nos en les teves preferències hem trobat que la recomanació que més va agradar a casos com el teu va ser la següent:"
+            trace_1 = "Basant-nos en les teves preferències, hem trobat que el cas més similar al teu i que, alhora, més va agradar la recomanació que vam donar va ser:"
             trace_2 = f"Amb una similitud entre els dos casos de {trace_data[i]['Similarity_case']:.2f}"
             
             if trace_data[i]['New_solution']is None:
@@ -331,7 +333,7 @@ class CBR:
             #Broken Restrictions Translating and New Book Description only for adapted solutions
             
             if len(c['Broken_restrictions']) > 0:
-                broken = ["Gèneres preferits", "Edat mínima", "Idioma del llibre", "No comprat anteriorment"]
+                broken = ["Gèneres preferits", "Edat mínima", "Idioma del llibre", "No recomanat anteriorment"]
                 c['Broken_restrictions'] = [broken[i] for i in range(len(c['Broken_restrictions'])) if not c['Broken_restrictions'][i]]
                 c['New_solution_name'] = self.books['titol'].iloc[c['New_solution']]
                 c['New_solution_description'] = self.books.iloc[c['New_solution']].to_dict()
@@ -439,9 +441,9 @@ class CBR:
         if len(self.case_problem.idioma.intersection(book_row.iloc[0]['traduccions'])) > 0:
             oblig[2] = True
 
-        #Llibre llegit/comprat
+        #Llibre recomanat anteriorment
 
-        if len(self.cases[(self.cases['id_usuari'] == self.case_problem.id_usuari) & (self.cases['id_llibre'] == book) & (self.cases['comprat'] == 'Si')]) == 0:
+        if len(self.cases[(self.cases['id_usuari'] == self.case_problem.id_usuari) & (self.cases['id_llibre'] == book)]) == 0:
             oblig[3] = True
 
         #Si és tot True, hem acabat l'adaptació (no fa falta). Si no, agafar els llibres que compleixin les obligatòries i que siguin més 
@@ -463,8 +465,9 @@ class CBR:
             mask = np.array([len(set_idioma.intersection(self.case_problem.idioma)) > 0 for set_idioma in subset_books_edat['traduccions'].values])
             subset_books_idioma = subset_books_edat[mask]
 
-            #No llegit
-            mask = np.array([len(self.cases[(self.cases['id_usuari'] == self.case_problem.id_usuari) & (self.cases['id_llibre'] == id_llibre) & (self.cases['comprat'] == 'Si')]) == 0 for id_llibre in subset_books_idioma['id_llibre'].values])
+            #No recomanat anteriorment
+
+            mask = np.array([len(self.cases[(self.cases['id_usuari'] == self.case_problem.id_usuari) & (self.cases['id_llibre'] == id_llibre)]) == 0 for id_llibre in subset_books_idioma['id_llibre'].values])
             subset_books_no_llegit = subset_books_idioma[mask]
 
             #Gènere del llibre
@@ -569,7 +572,7 @@ class CBR:
      
             list_similar_cases = []
             for case2 in sim_id_book_cases:
-                sim = self.similarity(self.case_problem, case2, retain=True)
+                sim = self.similarity(self.case_problem, case2, retain=True, features_ordered=self.features_by_importance)
                 if  sim >= 0.90:
                     list_similar_cases.append(case2)
                     subset_cases.remove(case2)
@@ -579,7 +582,10 @@ class CBR:
             # Return the instant_best_score_case, calculated_score, redundant_cases
             # IMP: The storing_case has been kicked out of the redundant_cases
             #      storing_case: Case to store  //  redundant_cases: Cases to remove
-            storing_case = self.calculate_new_score(list_similar_cases)
+
+            if len(list_similar_cases) > 1:
+                #Si no hi ha cap similar, no fem el càlcul de retenció
+                storing_case = self.calculate_new_score(list_similar_cases)
             
             # We need to assure that the 'storing_case' is not in the self.cases and update or add
             subset_cases.add(storing_case) # storing_case: instance of Case() class
@@ -587,7 +593,7 @@ class CBR:
             subset_cases.add(storing_case)
 
         self.case_base.modify_leaf(leaf_node._path, subset_cases)
-        self.case_base.plot_tree()
+        #self.case_base.plot_tree()
 
         # Un cop funcioni el recomanador, amb la seguent linía guardarem els casos al csv permanentment i books
         #COMENTAR SI NO ES VOL GUARDAR.

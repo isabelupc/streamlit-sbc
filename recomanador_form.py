@@ -39,7 +39,7 @@ def view(model):
             st.session_state['mostrar_recomanacions']=False
             st.session_state['idx_recomanacio']=0
 
-    def nou_call():  
+    def nou_call():
         model.add_user()
         st.session_state['primer'] = model.last_user()
         st.session_state['max_id'] = st.session_state['primer']
@@ -60,19 +60,15 @@ def view(model):
         st.write(' ')
         st.write(' ')
         st.button('Nou',on_click=nou_call)
-        ncall = True
 
     with st.form('formulari1'): 
         col1,col2,col3 = st.columns([4,1,2],gap='medium')
 
         with col1:
             nom = st.text_input(label='Nom ✍🏼',value=nom)
-            if ncall:
-                model.set_user_name(nom)
 
         with col2:
             any = st.number_input('Any de naixement 🗓️',1900,2030, dades['any_naixement'])
-            #dades['any_naixement'] = '< 2003' if (any < 2003) else '>= 2003'
             dades['any_naixement'] = any
 
         with col3:
@@ -113,6 +109,7 @@ def view(model):
         if submitted:
             model.change_user_name(lector,nom)
             model.actualitzar_puntuacions(nous_llegits)
+            model.delete_last_if_empty()
             st.session_state['mostrar_recomanacions']=True  
             st.session_state['idx_recomanacio'] = 0 
 
