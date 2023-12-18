@@ -1,0 +1,1054 @@
+// Decision Tree
+digraph {
+	root [label=genere_persona]
+	root_Dona [label=pref_sagues]
+	root -> root_Dona [label=Dona]
+	root_Dona_No [label=pref_tipus_lectura]
+	root_Dona -> root_Dona_No [label=No]
+	root_Dona_No_Indiferent [label="Romàntic"]
+	root_Dona_No -> root_Dona_No_Indiferent [label=Indiferent]
+	root_Dona_No_Indiferent_1 [label="Ciència Ficció"]
+	root_Dona_No_Indiferent -> root_Dona_No_Indiferent_1 [label=1]
+	root_Dona_No_Indiferent_1_1 [label=any_naixement]
+	root_Dona_No_Indiferent_1 -> root_Dona_No_Indiferent_1_1 [label=1]
+	"root_Dona_No_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Indiferent_1_1 -> "root_Dona_No_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Dona_No_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ [0, 1, 2, 3, 4, 8, 9]" shape=box]
+	root_Dona_No_Indiferent_1_1 -> "root_Dona_No_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_No_Indiferent_1_0 [label=any_naixement]
+	root_Dona_No_Indiferent_1 -> root_Dona_No_Indiferent_1_0 [label=0]
+	"root_Dona_No_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Indiferent_1_0 -> "root_Dona_No_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Dona_No_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Indiferent_1_0 -> "root_Dona_No_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_No_Indiferent_0 [label="Ciència Ficció"]
+	root_Dona_No_Indiferent -> root_Dona_No_Indiferent_0 [label=0]
+	root_Dona_No_Indiferent_0_1 [label=any_naixement]
+	root_Dona_No_Indiferent_0 -> root_Dona_No_Indiferent_0_1 [label=1]
+	"root_Dona_No_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Indiferent_0_1 -> "root_Dona_No_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Dona_No_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Indiferent_0_1 -> "root_Dona_No_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_No_Indiferent_0_0 [label=any_naixement]
+	root_Dona_No_Indiferent_0 -> root_Dona_No_Indiferent_0_0 [label=0]
+	"root_Dona_No_Indiferent_0_0_< 2003" [label="Subset Cases:
+ [104, 105, 106, 107, 108]" shape=box]
+	root_Dona_No_Indiferent_0_0 -> "root_Dona_No_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Dona_No_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ [13, 35, 36]" shape=box]
+	root_Dona_No_Indiferent_0_0 -> "root_Dona_No_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_No_Fluida [label="Romàntic"]
+	root_Dona_No -> root_Dona_No_Fluida [label=Fluida]
+	root_Dona_No_Fluida_1 [label="Ciència Ficció"]
+	root_Dona_No_Fluida -> root_Dona_No_Fluida_1 [label=1]
+	root_Dona_No_Fluida_1_1 [label=any_naixement]
+	root_Dona_No_Fluida_1 -> root_Dona_No_Fluida_1_1 [label=1]
+	"root_Dona_No_Fluida_1_1_< 2003" [label="Subset Cases:
+ [58]" shape=box]
+	root_Dona_No_Fluida_1_1 -> "root_Dona_No_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Dona_No_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Fluida_1_1 -> "root_Dona_No_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_No_Fluida_1_0 [label=any_naixement]
+	root_Dona_No_Fluida_1 -> root_Dona_No_Fluida_1_0 [label=0]
+	"root_Dona_No_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Fluida_1_0 -> "root_Dona_No_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Dona_No_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Fluida_1_0 -> "root_Dona_No_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_No_Fluida_0 [label="Ciència Ficció"]
+	root_Dona_No_Fluida -> root_Dona_No_Fluida_0 [label=0]
+	root_Dona_No_Fluida_0_1 [label=any_naixement]
+	root_Dona_No_Fluida_0 -> root_Dona_No_Fluida_0_1 [label=1]
+	"root_Dona_No_Fluida_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Fluida_0_1 -> "root_Dona_No_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Dona_No_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Fluida_0_1 -> "root_Dona_No_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_No_Fluida_0_0 [label=any_naixement]
+	root_Dona_No_Fluida_0 -> root_Dona_No_Fluida_0_0 [label=0]
+	"root_Dona_No_Fluida_0_0_< 2003" [label="Subset Cases:
+ [72, 73, 74, 109, 110, 111, 112, 113, 114, 123, 124, 125, 126, 131, 132, 133, 134, 135, 136]" shape=box]
+	root_Dona_No_Fluida_0_0 -> "root_Dona_No_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Dona_No_Fluida_0_0_>= 2003" [label="Subset Cases:
+ [38, 39, 40, 46, 47, 48, 49, 50]" shape=box]
+	root_Dona_No_Fluida_0_0 -> "root_Dona_No_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_No_Densa [label="Romàntic"]
+	root_Dona_No -> root_Dona_No_Densa [label=Densa]
+	root_Dona_No_Densa_1 [label="Ciència Ficció"]
+	root_Dona_No_Densa -> root_Dona_No_Densa_1 [label=1]
+	root_Dona_No_Densa_1_1 [label=any_naixement]
+	root_Dona_No_Densa_1 -> root_Dona_No_Densa_1_1 [label=1]
+	"root_Dona_No_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_1_1 -> "root_Dona_No_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Dona_No_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_1_1 -> "root_Dona_No_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_No_Densa_1_0 [label=any_naixement]
+	root_Dona_No_Densa_1 -> root_Dona_No_Densa_1_0 [label=0]
+	"root_Dona_No_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_1_0 -> "root_Dona_No_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Dona_No_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_1_0 -> "root_Dona_No_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_No_Densa_0 [label="Ciència Ficció"]
+	root_Dona_No_Densa -> root_Dona_No_Densa_0 [label=0]
+	root_Dona_No_Densa_0_1 [label=any_naixement]
+	root_Dona_No_Densa_0 -> root_Dona_No_Densa_0_1 [label=1]
+	"root_Dona_No_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_0_1 -> "root_Dona_No_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Dona_No_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_0_1 -> "root_Dona_No_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_No_Densa_0_0 [label=any_naixement]
+	root_Dona_No_Densa_0 -> root_Dona_No_Densa_0_0 [label=0]
+	"root_Dona_No_Densa_0_0_< 2003" [label="Subset Cases:
+ [64, 65, 66, 67, 115, 116]" shape=box]
+	root_Dona_No_Densa_0_0 -> "root_Dona_No_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Dona_No_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_No_Densa_0_0 -> "root_Dona_No_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_Si [label=pref_tipus_lectura]
+	root_Dona -> root_Dona_Si [label=Si]
+	root_Dona_Si_Indiferent [label="Romàntic"]
+	root_Dona_Si -> root_Dona_Si_Indiferent [label=Indiferent]
+	root_Dona_Si_Indiferent_1 [label="Ciència Ficció"]
+	root_Dona_Si_Indiferent -> root_Dona_Si_Indiferent_1 [label=1]
+	root_Dona_Si_Indiferent_1_1 [label=any_naixement]
+	root_Dona_Si_Indiferent_1 -> root_Dona_Si_Indiferent_1_1 [label=1]
+	"root_Dona_Si_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Indiferent_1_1 -> "root_Dona_Si_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Dona_Si_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Indiferent_1_1 -> "root_Dona_Si_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Indiferent_1_0 [label=any_naixement]
+	root_Dona_Si_Indiferent_1 -> root_Dona_Si_Indiferent_1_0 [label=0]
+	"root_Dona_Si_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Indiferent_1_0 -> "root_Dona_Si_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Dona_Si_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ [41, 42, 43, 44, 45, 55, 56, 57, 137, 138]" shape=box]
+	root_Dona_Si_Indiferent_1_0 -> "root_Dona_Si_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Indiferent_0 [label="Ciència Ficció"]
+	root_Dona_Si_Indiferent -> root_Dona_Si_Indiferent_0 [label=0]
+	root_Dona_Si_Indiferent_0_1 [label=any_naixement]
+	root_Dona_Si_Indiferent_0 -> root_Dona_Si_Indiferent_0_1 [label=1]
+	"root_Dona_Si_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Indiferent_0_1 -> "root_Dona_Si_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Dona_Si_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Indiferent_0_1 -> "root_Dona_Si_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Indiferent_0_0 [label=any_naixement]
+	root_Dona_Si_Indiferent_0 -> root_Dona_Si_Indiferent_0_0 [label=0]
+	"root_Dona_Si_Indiferent_0_0_< 2003" [label="Subset Cases:
+ [100, 101, 102]" shape=box]
+	root_Dona_Si_Indiferent_0_0 -> "root_Dona_Si_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Dona_Si_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Indiferent_0_0 -> "root_Dona_Si_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Fluida [label="Romàntic"]
+	root_Dona_Si -> root_Dona_Si_Fluida [label=Fluida]
+	root_Dona_Si_Fluida_1 [label="Ciència Ficció"]
+	root_Dona_Si_Fluida -> root_Dona_Si_Fluida_1 [label=1]
+	root_Dona_Si_Fluida_1_1 [label=any_naixement]
+	root_Dona_Si_Fluida_1 -> root_Dona_Si_Fluida_1_1 [label=1]
+	"root_Dona_Si_Fluida_1_1_< 2003" [label="Subset Cases:
+ [68, 69]" shape=box]
+	root_Dona_Si_Fluida_1_1 -> "root_Dona_Si_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Dona_Si_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Fluida_1_1 -> "root_Dona_Si_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Fluida_1_0 [label=any_naixement]
+	root_Dona_Si_Fluida_1 -> root_Dona_Si_Fluida_1_0 [label=0]
+	"root_Dona_Si_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Fluida_1_0 -> "root_Dona_Si_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Dona_Si_Fluida_1_0_>= 2003" [label="Subset Cases:
+ [139, 140]" shape=box]
+	root_Dona_Si_Fluida_1_0 -> "root_Dona_Si_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Fluida_0 [label="Ciència Ficció"]
+	root_Dona_Si_Fluida -> root_Dona_Si_Fluida_0 [label=0]
+	root_Dona_Si_Fluida_0_1 [label=any_naixement]
+	root_Dona_Si_Fluida_0 -> root_Dona_Si_Fluida_0_1 [label=1]
+	"root_Dona_Si_Fluida_0_1_< 2003" [label="Subset Cases:
+ [96, 97]" shape=box]
+	root_Dona_Si_Fluida_0_1 -> "root_Dona_Si_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Dona_Si_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Fluida_0_1 -> "root_Dona_Si_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Fluida_0_0 [label=any_naixement]
+	root_Dona_Si_Fluida_0 -> root_Dona_Si_Fluida_0_0 [label=0]
+	"root_Dona_Si_Fluida_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Fluida_0_0 -> "root_Dona_Si_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Dona_Si_Fluida_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Fluida_0_0 -> "root_Dona_Si_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Densa [label="Romàntic"]
+	root_Dona_Si -> root_Dona_Si_Densa [label=Densa]
+	root_Dona_Si_Densa_1 [label="Ciència Ficció"]
+	root_Dona_Si_Densa -> root_Dona_Si_Densa_1 [label=1]
+	root_Dona_Si_Densa_1_1 [label=any_naixement]
+	root_Dona_Si_Densa_1 -> root_Dona_Si_Densa_1_1 [label=1]
+	"root_Dona_Si_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_1_1 -> "root_Dona_Si_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Dona_Si_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_1_1 -> "root_Dona_Si_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Densa_1_0 [label=any_naixement]
+	root_Dona_Si_Densa_1 -> root_Dona_Si_Densa_1_0 [label=0]
+	"root_Dona_Si_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_1_0 -> "root_Dona_Si_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Dona_Si_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_1_0 -> "root_Dona_Si_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Densa_0 [label="Ciència Ficció"]
+	root_Dona_Si_Densa -> root_Dona_Si_Densa_0 [label=0]
+	root_Dona_Si_Densa_0_1 [label=any_naixement]
+	root_Dona_Si_Densa_0 -> root_Dona_Si_Densa_0_1 [label=1]
+	"root_Dona_Si_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_0_1 -> "root_Dona_Si_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Dona_Si_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_0_1 -> "root_Dona_Si_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_Si_Densa_0_0 [label=any_naixement]
+	root_Dona_Si_Densa_0 -> root_Dona_Si_Densa_0_0 [label=0]
+	"root_Dona_Si_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_0_0 -> "root_Dona_Si_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Dona_Si_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Si_Densa_0_0 -> "root_Dona_Si_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent [label=pref_tipus_lectura]
+	root_Dona -> root_Dona_Indiferent [label=Indiferent]
+	root_Dona_Indiferent_Indiferent [label="Romàntic"]
+	root_Dona_Indiferent -> root_Dona_Indiferent_Indiferent [label=Indiferent]
+	root_Dona_Indiferent_Indiferent_1 [label="Ciència Ficció"]
+	root_Dona_Indiferent_Indiferent -> root_Dona_Indiferent_Indiferent_1 [label=1]
+	root_Dona_Indiferent_Indiferent_1_1 [label=any_naixement]
+	root_Dona_Indiferent_Indiferent_1 -> root_Dona_Indiferent_Indiferent_1_1 [label=1]
+	"root_Dona_Indiferent_Indiferent_1_1_< 2003" [label="Subset Cases:
+ [26, 27]" shape=box]
+	root_Dona_Indiferent_Indiferent_1_1 -> "root_Dona_Indiferent_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Indiferent_1_1 -> "root_Dona_Indiferent_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Indiferent_1_0 [label=any_naixement]
+	root_Dona_Indiferent_Indiferent_1 -> root_Dona_Indiferent_Indiferent_1_0 [label=0]
+	"root_Dona_Indiferent_Indiferent_1_0_< 2003" [label="Subset Cases:
+ [51, 52, 53, 54, 78, 79, 80]" shape=box]
+	root_Dona_Indiferent_Indiferent_1_0 -> "root_Dona_Indiferent_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Indiferent_1_0 -> "root_Dona_Indiferent_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Indiferent_0 [label="Ciència Ficció"]
+	root_Dona_Indiferent_Indiferent -> root_Dona_Indiferent_Indiferent_0 [label=0]
+	root_Dona_Indiferent_Indiferent_0_1 [label=any_naixement]
+	root_Dona_Indiferent_Indiferent_0 -> root_Dona_Indiferent_Indiferent_0_1 [label=1]
+	"root_Dona_Indiferent_Indiferent_0_1_< 2003" [label="Subset Cases:
+ [81, 82]" shape=box]
+	root_Dona_Indiferent_Indiferent_0_1 -> "root_Dona_Indiferent_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Indiferent_0_1 -> "root_Dona_Indiferent_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Indiferent_0_0 [label=any_naixement]
+	root_Dona_Indiferent_Indiferent_0 -> root_Dona_Indiferent_Indiferent_0_0 [label=0]
+	"root_Dona_Indiferent_Indiferent_0_0_< 2003" [label="Subset Cases:
+ [118, 119, 120, 121, 122, 127, 128, 129, 130]" shape=box]
+	root_Dona_Indiferent_Indiferent_0_0 -> "root_Dona_Indiferent_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ [37]" shape=box]
+	root_Dona_Indiferent_Indiferent_0_0 -> "root_Dona_Indiferent_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Fluida [label="Romàntic"]
+	root_Dona_Indiferent -> root_Dona_Indiferent_Fluida [label=Fluida]
+	root_Dona_Indiferent_Fluida_1 [label="Ciència Ficció"]
+	root_Dona_Indiferent_Fluida -> root_Dona_Indiferent_Fluida_1 [label=1]
+	root_Dona_Indiferent_Fluida_1_1 [label=any_naixement]
+	root_Dona_Indiferent_Fluida_1 -> root_Dona_Indiferent_Fluida_1_1 [label=1]
+	"root_Dona_Indiferent_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Fluida_1_1 -> "root_Dona_Indiferent_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Fluida_1_1 -> "root_Dona_Indiferent_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Fluida_1_0 [label=any_naixement]
+	root_Dona_Indiferent_Fluida_1 -> root_Dona_Indiferent_Fluida_1_0 [label=0]
+	"root_Dona_Indiferent_Fluida_1_0_< 2003" [label="Subset Cases:
+ [70, 71, 75, 76, 77]" shape=box]
+	root_Dona_Indiferent_Fluida_1_0 -> "root_Dona_Indiferent_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Fluida_1_0 -> "root_Dona_Indiferent_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Fluida_0 [label="Ciència Ficció"]
+	root_Dona_Indiferent_Fluida -> root_Dona_Indiferent_Fluida_0 [label=0]
+	root_Dona_Indiferent_Fluida_0_1 [label=any_naixement]
+	root_Dona_Indiferent_Fluida_0 -> root_Dona_Indiferent_Fluida_0_1 [label=1]
+	"root_Dona_Indiferent_Fluida_0_1_< 2003" [label="Subset Cases:
+ [83, 84, 85, 86, 87, 88, 89]" shape=box]
+	root_Dona_Indiferent_Fluida_0_1 -> "root_Dona_Indiferent_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Fluida_0_1 -> "root_Dona_Indiferent_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Fluida_0_0 [label=any_naixement]
+	root_Dona_Indiferent_Fluida_0 -> root_Dona_Indiferent_Fluida_0_0 [label=0]
+	"root_Dona_Indiferent_Fluida_0_0_< 2003" [label="Subset Cases:
+ [90, 91, 92, 93, 94, 95]" shape=box]
+	root_Dona_Indiferent_Fluida_0_0 -> "root_Dona_Indiferent_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Fluida_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Fluida_0_0 -> "root_Dona_Indiferent_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Densa [label="Romàntic"]
+	root_Dona_Indiferent -> root_Dona_Indiferent_Densa [label=Densa]
+	root_Dona_Indiferent_Densa_1 [label="Ciència Ficció"]
+	root_Dona_Indiferent_Densa -> root_Dona_Indiferent_Densa_1 [label=1]
+	root_Dona_Indiferent_Densa_1_1 [label=any_naixement]
+	root_Dona_Indiferent_Densa_1 -> root_Dona_Indiferent_Densa_1_1 [label=1]
+	"root_Dona_Indiferent_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Densa_1_1 -> "root_Dona_Indiferent_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Densa_1_1_>= 2003" [label="Subset Cases:
+ [141, 142]" shape=box]
+	root_Dona_Indiferent_Densa_1_1 -> "root_Dona_Indiferent_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Densa_1_0 [label=any_naixement]
+	root_Dona_Indiferent_Densa_1 -> root_Dona_Indiferent_Densa_1_0 [label=0]
+	"root_Dona_Indiferent_Densa_1_0_< 2003" [label="Subset Cases:
+ [98, 99]" shape=box]
+	root_Dona_Indiferent_Densa_1_0 -> "root_Dona_Indiferent_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Densa_1_0 -> "root_Dona_Indiferent_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Densa_0 [label="Ciència Ficció"]
+	root_Dona_Indiferent_Densa -> root_Dona_Indiferent_Densa_0 [label=0]
+	root_Dona_Indiferent_Densa_0_1 [label=any_naixement]
+	root_Dona_Indiferent_Densa_0 -> root_Dona_Indiferent_Densa_0_1 [label=1]
+	"root_Dona_Indiferent_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Densa_0_1 -> "root_Dona_Indiferent_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Densa_0_1 -> "root_Dona_Indiferent_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Dona_Indiferent_Densa_0_0 [label=any_naixement]
+	root_Dona_Indiferent_Densa_0 -> root_Dona_Indiferent_Densa_0_0 [label=0]
+	"root_Dona_Indiferent_Densa_0_0_< 2003" [label="Subset Cases:
+ [62, 63, 103]" shape=box]
+	root_Dona_Indiferent_Densa_0_0 -> "root_Dona_Indiferent_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Dona_Indiferent_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Dona_Indiferent_Densa_0_0 -> "root_Dona_Indiferent_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Home [label=pref_sagues]
+	root -> root_Home [label=Home]
+	root_Home_No [label=pref_tipus_lectura]
+	root_Home -> root_Home_No [label=No]
+	root_Home_No_Indiferent [label="Romàntic"]
+	root_Home_No -> root_Home_No_Indiferent [label=Indiferent]
+	root_Home_No_Indiferent_1 [label="Ciència Ficció"]
+	root_Home_No_Indiferent -> root_Home_No_Indiferent_1 [label=1]
+	root_Home_No_Indiferent_1_1 [label=any_naixement]
+	root_Home_No_Indiferent_1 -> root_Home_No_Indiferent_1_1 [label=1]
+	"root_Home_No_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Indiferent_1_1 -> "root_Home_No_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Home_No_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Indiferent_1_1 -> "root_Home_No_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Home_No_Indiferent_1_0 [label=any_naixement]
+	root_Home_No_Indiferent_1 -> root_Home_No_Indiferent_1_0 [label=0]
+	"root_Home_No_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Indiferent_1_0 -> "root_Home_No_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Home_No_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Indiferent_1_0 -> "root_Home_No_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Home_No_Indiferent_0 [label="Ciència Ficció"]
+	root_Home_No_Indiferent -> root_Home_No_Indiferent_0 [label=0]
+	root_Home_No_Indiferent_0_1 [label=any_naixement]
+	root_Home_No_Indiferent_0 -> root_Home_No_Indiferent_0_1 [label=1]
+	"root_Home_No_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Indiferent_0_1 -> "root_Home_No_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Home_No_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ [59, 60, 61]" shape=box]
+	root_Home_No_Indiferent_0_1 -> "root_Home_No_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Home_No_Indiferent_0_0 [label=any_naixement]
+	root_Home_No_Indiferent_0 -> root_Home_No_Indiferent_0_0 [label=0]
+	"root_Home_No_Indiferent_0_0_< 2003" [label="Subset Cases:
+ [23]" shape=box]
+	root_Home_No_Indiferent_0_0 -> "root_Home_No_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Home_No_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Indiferent_0_0 -> "root_Home_No_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Home_No_Fluida [label="Romàntic"]
+	root_Home_No -> root_Home_No_Fluida [label=Fluida]
+	root_Home_No_Fluida_1 [label="Ciència Ficció"]
+	root_Home_No_Fluida -> root_Home_No_Fluida_1 [label=1]
+	root_Home_No_Fluida_1_1 [label=any_naixement]
+	root_Home_No_Fluida_1 -> root_Home_No_Fluida_1_1 [label=1]
+	"root_Home_No_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_1_1 -> "root_Home_No_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Home_No_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_1_1 -> "root_Home_No_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Home_No_Fluida_1_0 [label=any_naixement]
+	root_Home_No_Fluida_1 -> root_Home_No_Fluida_1_0 [label=0]
+	"root_Home_No_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_1_0 -> "root_Home_No_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Home_No_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_1_0 -> "root_Home_No_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Home_No_Fluida_0 [label="Ciència Ficció"]
+	root_Home_No_Fluida -> root_Home_No_Fluida_0 [label=0]
+	root_Home_No_Fluida_0_1 [label=any_naixement]
+	root_Home_No_Fluida_0 -> root_Home_No_Fluida_0_1 [label=1]
+	"root_Home_No_Fluida_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_0_1 -> "root_Home_No_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Home_No_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_0_1 -> "root_Home_No_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Home_No_Fluida_0_0 [label=any_naixement]
+	root_Home_No_Fluida_0 -> root_Home_No_Fluida_0_0 [label=0]
+	"root_Home_No_Fluida_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Fluida_0_0 -> "root_Home_No_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Home_No_Fluida_0_0_>= 2003" [label="Subset Cases:
+ [10, 11, 12, 16, 17, 24, 25, 117]" shape=box]
+	root_Home_No_Fluida_0_0 -> "root_Home_No_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Home_No_Densa [label="Romàntic"]
+	root_Home_No -> root_Home_No_Densa [label=Densa]
+	root_Home_No_Densa_1 [label="Ciència Ficció"]
+	root_Home_No_Densa -> root_Home_No_Densa_1 [label=1]
+	root_Home_No_Densa_1_1 [label=any_naixement]
+	root_Home_No_Densa_1 -> root_Home_No_Densa_1_1 [label=1]
+	"root_Home_No_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_1_1 -> "root_Home_No_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Home_No_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_1_1 -> "root_Home_No_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Home_No_Densa_1_0 [label=any_naixement]
+	root_Home_No_Densa_1 -> root_Home_No_Densa_1_0 [label=0]
+	"root_Home_No_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_1_0 -> "root_Home_No_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Home_No_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_1_0 -> "root_Home_No_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Home_No_Densa_0 [label="Ciència Ficció"]
+	root_Home_No_Densa -> root_Home_No_Densa_0 [label=0]
+	root_Home_No_Densa_0_1 [label=any_naixement]
+	root_Home_No_Densa_0 -> root_Home_No_Densa_0_1 [label=1]
+	"root_Home_No_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_0_1 -> "root_Home_No_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Home_No_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_0_1 -> "root_Home_No_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Home_No_Densa_0_0 [label=any_naixement]
+	root_Home_No_Densa_0 -> root_Home_No_Densa_0_0 [label=0]
+	"root_Home_No_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_No_Densa_0_0 -> "root_Home_No_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Home_No_Densa_0_0_>= 2003" [label="Subset Cases:
+ [19, 20, 21, 22]" shape=box]
+	root_Home_No_Densa_0_0 -> "root_Home_No_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Home_Si [label=pref_tipus_lectura]
+	root_Home -> root_Home_Si [label=Si]
+	root_Home_Si_Indiferent [label="Romàntic"]
+	root_Home_Si -> root_Home_Si_Indiferent [label=Indiferent]
+	root_Home_Si_Indiferent_1 [label="Ciència Ficció"]
+	root_Home_Si_Indiferent -> root_Home_Si_Indiferent_1 [label=1]
+	root_Home_Si_Indiferent_1_1 [label=any_naixement]
+	root_Home_Si_Indiferent_1 -> root_Home_Si_Indiferent_1_1 [label=1]
+	"root_Home_Si_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_1_1 -> "root_Home_Si_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Home_Si_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_1_1 -> "root_Home_Si_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Home_Si_Indiferent_1_0 [label=any_naixement]
+	root_Home_Si_Indiferent_1 -> root_Home_Si_Indiferent_1_0 [label=0]
+	"root_Home_Si_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_1_0 -> "root_Home_Si_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Home_Si_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_1_0 -> "root_Home_Si_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Home_Si_Indiferent_0 [label="Ciència Ficció"]
+	root_Home_Si_Indiferent -> root_Home_Si_Indiferent_0 [label=0]
+	root_Home_Si_Indiferent_0_1 [label=any_naixement]
+	root_Home_Si_Indiferent_0 -> root_Home_Si_Indiferent_0_1 [label=1]
+	"root_Home_Si_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_0_1 -> "root_Home_Si_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Home_Si_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_0_1 -> "root_Home_Si_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Home_Si_Indiferent_0_0 [label=any_naixement]
+	root_Home_Si_Indiferent_0 -> root_Home_Si_Indiferent_0_0 [label=0]
+	"root_Home_Si_Indiferent_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_0_0 -> "root_Home_Si_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Home_Si_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Indiferent_0_0 -> "root_Home_Si_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Home_Si_Fluida [label="Romàntic"]
+	root_Home_Si -> root_Home_Si_Fluida [label=Fluida]
+	root_Home_Si_Fluida_1 [label="Ciència Ficció"]
+	root_Home_Si_Fluida -> root_Home_Si_Fluida_1 [label=1]
+	root_Home_Si_Fluida_1_1 [label=any_naixement]
+	root_Home_Si_Fluida_1 -> root_Home_Si_Fluida_1_1 [label=1]
+	"root_Home_Si_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Fluida_1_1 -> "root_Home_Si_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Home_Si_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Fluida_1_1 -> "root_Home_Si_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Home_Si_Fluida_1_0 [label=any_naixement]
+	root_Home_Si_Fluida_1 -> root_Home_Si_Fluida_1_0 [label=0]
+	"root_Home_Si_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Fluida_1_0 -> "root_Home_Si_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Home_Si_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Fluida_1_0 -> "root_Home_Si_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Home_Si_Fluida_0 [label="Ciència Ficció"]
+	root_Home_Si_Fluida -> root_Home_Si_Fluida_0 [label=0]
+	root_Home_Si_Fluida_0_1 [label=any_naixement]
+	root_Home_Si_Fluida_0 -> root_Home_Si_Fluida_0_1 [label=1]
+	"root_Home_Si_Fluida_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Fluida_0_1 -> "root_Home_Si_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Home_Si_Fluida_0_1_>= 2003" [label="Subset Cases:
+ [18]" shape=box]
+	root_Home_Si_Fluida_0_1 -> "root_Home_Si_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Home_Si_Fluida_0_0 [label=any_naixement]
+	root_Home_Si_Fluida_0 -> root_Home_Si_Fluida_0_0 [label=0]
+	"root_Home_Si_Fluida_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Fluida_0_0 -> "root_Home_Si_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Home_Si_Fluida_0_0_>= 2003" [label="Subset Cases:
+ [5, 148, 147, 6, 146, 7]" shape=box]
+	root_Home_Si_Fluida_0_0 -> "root_Home_Si_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Home_Si_Densa [label="Romàntic"]
+	root_Home_Si -> root_Home_Si_Densa [label=Densa]
+	root_Home_Si_Densa_1 [label="Ciència Ficció"]
+	root_Home_Si_Densa -> root_Home_Si_Densa_1 [label=1]
+	root_Home_Si_Densa_1_1 [label=any_naixement]
+	root_Home_Si_Densa_1 -> root_Home_Si_Densa_1_1 [label=1]
+	"root_Home_Si_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_1_1 -> "root_Home_Si_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Home_Si_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_1_1 -> "root_Home_Si_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Home_Si_Densa_1_0 [label=any_naixement]
+	root_Home_Si_Densa_1 -> root_Home_Si_Densa_1_0 [label=0]
+	"root_Home_Si_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_1_0 -> "root_Home_Si_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Home_Si_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_1_0 -> "root_Home_Si_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Home_Si_Densa_0 [label="Ciència Ficció"]
+	root_Home_Si_Densa -> root_Home_Si_Densa_0 [label=0]
+	root_Home_Si_Densa_0_1 [label=any_naixement]
+	root_Home_Si_Densa_0 -> root_Home_Si_Densa_0_1 [label=1]
+	"root_Home_Si_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_0_1 -> "root_Home_Si_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Home_Si_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_0_1 -> "root_Home_Si_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Home_Si_Densa_0_0 [label=any_naixement]
+	root_Home_Si_Densa_0 -> root_Home_Si_Densa_0_0 [label=0]
+	"root_Home_Si_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_0_0 -> "root_Home_Si_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Home_Si_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Si_Densa_0_0 -> "root_Home_Si_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent [label=pref_tipus_lectura]
+	root_Home -> root_Home_Indiferent [label=Indiferent]
+	root_Home_Indiferent_Indiferent [label="Romàntic"]
+	root_Home_Indiferent -> root_Home_Indiferent_Indiferent [label=Indiferent]
+	root_Home_Indiferent_Indiferent_1 [label="Ciència Ficció"]
+	root_Home_Indiferent_Indiferent -> root_Home_Indiferent_Indiferent_1 [label=1]
+	root_Home_Indiferent_Indiferent_1_1 [label=any_naixement]
+	root_Home_Indiferent_Indiferent_1 -> root_Home_Indiferent_Indiferent_1_1 [label=1]
+	"root_Home_Indiferent_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_1_1 -> "root_Home_Indiferent_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_1_1 -> "root_Home_Indiferent_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Indiferent_1_0 [label=any_naixement]
+	root_Home_Indiferent_Indiferent_1 -> root_Home_Indiferent_Indiferent_1_0 [label=0]
+	"root_Home_Indiferent_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_1_0 -> "root_Home_Indiferent_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_1_0 -> "root_Home_Indiferent_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Indiferent_0 [label="Ciència Ficció"]
+	root_Home_Indiferent_Indiferent -> root_Home_Indiferent_Indiferent_0 [label=0]
+	root_Home_Indiferent_Indiferent_0_1 [label=any_naixement]
+	root_Home_Indiferent_Indiferent_0 -> root_Home_Indiferent_Indiferent_0_1 [label=1]
+	"root_Home_Indiferent_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_0_1 -> "root_Home_Indiferent_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_0_1 -> "root_Home_Indiferent_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Indiferent_0_0 [label=any_naixement]
+	root_Home_Indiferent_Indiferent_0 -> root_Home_Indiferent_Indiferent_0_0 [label=0]
+	"root_Home_Indiferent_Indiferent_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_0_0 -> "root_Home_Indiferent_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Indiferent_0_0 -> "root_Home_Indiferent_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Fluida [label="Romàntic"]
+	root_Home_Indiferent -> root_Home_Indiferent_Fluida [label=Fluida]
+	root_Home_Indiferent_Fluida_1 [label="Ciència Ficció"]
+	root_Home_Indiferent_Fluida -> root_Home_Indiferent_Fluida_1 [label=1]
+	root_Home_Indiferent_Fluida_1_1 [label=any_naixement]
+	root_Home_Indiferent_Fluida_1 -> root_Home_Indiferent_Fluida_1_1 [label=1]
+	"root_Home_Indiferent_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Fluida_1_1 -> "root_Home_Indiferent_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Fluida_1_1 -> "root_Home_Indiferent_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Fluida_1_0 [label=any_naixement]
+	root_Home_Indiferent_Fluida_1 -> root_Home_Indiferent_Fluida_1_0 [label=0]
+	"root_Home_Indiferent_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Fluida_1_0 -> "root_Home_Indiferent_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Fluida_1_0 -> "root_Home_Indiferent_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Fluida_0 [label="Ciència Ficció"]
+	root_Home_Indiferent_Fluida -> root_Home_Indiferent_Fluida_0 [label=0]
+	root_Home_Indiferent_Fluida_0_1 [label=any_naixement]
+	root_Home_Indiferent_Fluida_0 -> root_Home_Indiferent_Fluida_0_1 [label=1]
+	"root_Home_Indiferent_Fluida_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Fluida_0_1 -> "root_Home_Indiferent_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Fluida_0_1 -> "root_Home_Indiferent_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Fluida_0_0 [label=any_naixement]
+	root_Home_Indiferent_Fluida_0 -> root_Home_Indiferent_Fluida_0_0 [label=0]
+	"root_Home_Indiferent_Fluida_0_0_< 2003" [label="Subset Cases:
+ [143, 144, 145]" shape=box]
+	root_Home_Indiferent_Fluida_0_0 -> "root_Home_Indiferent_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Fluida_0_0_>= 2003" [label="Subset Cases:
+ [32, 33, 34]" shape=box]
+	root_Home_Indiferent_Fluida_0_0 -> "root_Home_Indiferent_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Densa [label="Romàntic"]
+	root_Home_Indiferent -> root_Home_Indiferent_Densa [label=Densa]
+	root_Home_Indiferent_Densa_1 [label="Ciència Ficció"]
+	root_Home_Indiferent_Densa -> root_Home_Indiferent_Densa_1 [label=1]
+	root_Home_Indiferent_Densa_1_1 [label=any_naixement]
+	root_Home_Indiferent_Densa_1 -> root_Home_Indiferent_Densa_1_1 [label=1]
+	"root_Home_Indiferent_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_1_1 -> "root_Home_Indiferent_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_1_1 -> "root_Home_Indiferent_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Densa_1_0 [label=any_naixement]
+	root_Home_Indiferent_Densa_1 -> root_Home_Indiferent_Densa_1_0 [label=0]
+	"root_Home_Indiferent_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_1_0 -> "root_Home_Indiferent_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_1_0 -> "root_Home_Indiferent_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Densa_0 [label="Ciència Ficció"]
+	root_Home_Indiferent_Densa -> root_Home_Indiferent_Densa_0 [label=0]
+	root_Home_Indiferent_Densa_0_1 [label=any_naixement]
+	root_Home_Indiferent_Densa_0 -> root_Home_Indiferent_Densa_0_1 [label=1]
+	"root_Home_Indiferent_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_0_1 -> "root_Home_Indiferent_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_0_1 -> "root_Home_Indiferent_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Home_Indiferent_Densa_0_0 [label=any_naixement]
+	root_Home_Indiferent_Densa_0 -> root_Home_Indiferent_Densa_0_0 [label=0]
+	"root_Home_Indiferent_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Home_Indiferent_Densa_0_0 -> "root_Home_Indiferent_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Home_Indiferent_Densa_0_0_>= 2003" [label="Subset Cases:
+ [28, 29, 30, 31]" shape=box]
+	root_Home_Indiferent_Densa_0_0 -> "root_Home_Indiferent_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Altres [label=pref_sagues]
+	root -> root_Altres [label=Altres]
+	root_Altres_No [label=pref_tipus_lectura]
+	root_Altres -> root_Altres_No [label=No]
+	root_Altres_No_Indiferent [label="Romàntic"]
+	root_Altres_No -> root_Altres_No_Indiferent [label=Indiferent]
+	root_Altres_No_Indiferent_1 [label="Ciència Ficció"]
+	root_Altres_No_Indiferent -> root_Altres_No_Indiferent_1 [label=1]
+	root_Altres_No_Indiferent_1_1 [label=any_naixement]
+	root_Altres_No_Indiferent_1 -> root_Altres_No_Indiferent_1_1 [label=1]
+	"root_Altres_No_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_1_1 -> "root_Altres_No_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Altres_No_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_1_1 -> "root_Altres_No_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_No_Indiferent_1_0 [label=any_naixement]
+	root_Altres_No_Indiferent_1 -> root_Altres_No_Indiferent_1_0 [label=0]
+	"root_Altres_No_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_1_0 -> "root_Altres_No_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Altres_No_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_1_0 -> "root_Altres_No_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_No_Indiferent_0 [label="Ciència Ficció"]
+	root_Altres_No_Indiferent -> root_Altres_No_Indiferent_0 [label=0]
+	root_Altres_No_Indiferent_0_1 [label=any_naixement]
+	root_Altres_No_Indiferent_0 -> root_Altres_No_Indiferent_0_1 [label=1]
+	"root_Altres_No_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_0_1 -> "root_Altres_No_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Altres_No_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_0_1 -> "root_Altres_No_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_No_Indiferent_0_0 [label=any_naixement]
+	root_Altres_No_Indiferent_0 -> root_Altres_No_Indiferent_0_0 [label=0]
+	"root_Altres_No_Indiferent_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_0_0 -> "root_Altres_No_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Altres_No_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Indiferent_0_0 -> "root_Altres_No_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_No_Fluida [label="Romàntic"]
+	root_Altres_No -> root_Altres_No_Fluida [label=Fluida]
+	root_Altres_No_Fluida_1 [label="Ciència Ficció"]
+	root_Altres_No_Fluida -> root_Altres_No_Fluida_1 [label=1]
+	root_Altres_No_Fluida_1_1 [label=any_naixement]
+	root_Altres_No_Fluida_1 -> root_Altres_No_Fluida_1_1 [label=1]
+	"root_Altres_No_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_1_1 -> "root_Altres_No_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Altres_No_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_1_1 -> "root_Altres_No_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_No_Fluida_1_0 [label=any_naixement]
+	root_Altres_No_Fluida_1 -> root_Altres_No_Fluida_1_0 [label=0]
+	"root_Altres_No_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_1_0 -> "root_Altres_No_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Altres_No_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_1_0 -> "root_Altres_No_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_No_Fluida_0 [label="Ciència Ficció"]
+	root_Altres_No_Fluida -> root_Altres_No_Fluida_0 [label=0]
+	root_Altres_No_Fluida_0_1 [label=any_naixement]
+	root_Altres_No_Fluida_0 -> root_Altres_No_Fluida_0_1 [label=1]
+	"root_Altres_No_Fluida_0_1_< 2003" [label="Subset Cases:
+ [14, 15]" shape=box]
+	root_Altres_No_Fluida_0_1 -> "root_Altres_No_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Altres_No_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_0_1 -> "root_Altres_No_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_No_Fluida_0_0 [label=any_naixement]
+	root_Altres_No_Fluida_0 -> root_Altres_No_Fluida_0_0 [label=0]
+	"root_Altres_No_Fluida_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_0_0 -> "root_Altres_No_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Altres_No_Fluida_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Fluida_0_0 -> "root_Altres_No_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_No_Densa [label="Romàntic"]
+	root_Altres_No -> root_Altres_No_Densa [label=Densa]
+	root_Altres_No_Densa_1 [label="Ciència Ficció"]
+	root_Altres_No_Densa -> root_Altres_No_Densa_1 [label=1]
+	root_Altres_No_Densa_1_1 [label=any_naixement]
+	root_Altres_No_Densa_1 -> root_Altres_No_Densa_1_1 [label=1]
+	"root_Altres_No_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_1_1 -> "root_Altres_No_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Altres_No_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_1_1 -> "root_Altres_No_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_No_Densa_1_0 [label=any_naixement]
+	root_Altres_No_Densa_1 -> root_Altres_No_Densa_1_0 [label=0]
+	"root_Altres_No_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_1_0 -> "root_Altres_No_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Altres_No_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_1_0 -> "root_Altres_No_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_No_Densa_0 [label="Ciència Ficció"]
+	root_Altres_No_Densa -> root_Altres_No_Densa_0 [label=0]
+	root_Altres_No_Densa_0_1 [label=any_naixement]
+	root_Altres_No_Densa_0 -> root_Altres_No_Densa_0_1 [label=1]
+	"root_Altres_No_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_0_1 -> "root_Altres_No_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Altres_No_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_0_1 -> "root_Altres_No_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_No_Densa_0_0 [label=any_naixement]
+	root_Altres_No_Densa_0 -> root_Altres_No_Densa_0_0 [label=0]
+	"root_Altres_No_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_0_0 -> "root_Altres_No_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Altres_No_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_No_Densa_0_0 -> "root_Altres_No_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_Si [label=pref_tipus_lectura]
+	root_Altres -> root_Altres_Si [label=Si]
+	root_Altres_Si_Indiferent [label="Romàntic"]
+	root_Altres_Si -> root_Altres_Si_Indiferent [label=Indiferent]
+	root_Altres_Si_Indiferent_1 [label="Ciència Ficció"]
+	root_Altres_Si_Indiferent -> root_Altres_Si_Indiferent_1 [label=1]
+	root_Altres_Si_Indiferent_1_1 [label=any_naixement]
+	root_Altres_Si_Indiferent_1 -> root_Altres_Si_Indiferent_1_1 [label=1]
+	"root_Altres_Si_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_1_1 -> "root_Altres_Si_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Altres_Si_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_1_1 -> "root_Altres_Si_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Indiferent_1_0 [label=any_naixement]
+	root_Altres_Si_Indiferent_1 -> root_Altres_Si_Indiferent_1_0 [label=0]
+	"root_Altres_Si_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_1_0 -> "root_Altres_Si_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Altres_Si_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_1_0 -> "root_Altres_Si_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Indiferent_0 [label="Ciència Ficció"]
+	root_Altres_Si_Indiferent -> root_Altres_Si_Indiferent_0 [label=0]
+	root_Altres_Si_Indiferent_0_1 [label=any_naixement]
+	root_Altres_Si_Indiferent_0 -> root_Altres_Si_Indiferent_0_1 [label=1]
+	"root_Altres_Si_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_0_1 -> "root_Altres_Si_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Altres_Si_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_0_1 -> "root_Altres_Si_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Indiferent_0_0 [label=any_naixement]
+	root_Altres_Si_Indiferent_0 -> root_Altres_Si_Indiferent_0_0 [label=0]
+	"root_Altres_Si_Indiferent_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_0_0 -> "root_Altres_Si_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Altres_Si_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Indiferent_0_0 -> "root_Altres_Si_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Fluida [label="Romàntic"]
+	root_Altres_Si -> root_Altres_Si_Fluida [label=Fluida]
+	root_Altres_Si_Fluida_1 [label="Ciència Ficció"]
+	root_Altres_Si_Fluida -> root_Altres_Si_Fluida_1 [label=1]
+	root_Altres_Si_Fluida_1_1 [label=any_naixement]
+	root_Altres_Si_Fluida_1 -> root_Altres_Si_Fluida_1_1 [label=1]
+	"root_Altres_Si_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_1_1 -> "root_Altres_Si_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Altres_Si_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_1_1 -> "root_Altres_Si_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Fluida_1_0 [label=any_naixement]
+	root_Altres_Si_Fluida_1 -> root_Altres_Si_Fluida_1_0 [label=0]
+	"root_Altres_Si_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_1_0 -> "root_Altres_Si_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Altres_Si_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_1_0 -> "root_Altres_Si_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Fluida_0 [label="Ciència Ficció"]
+	root_Altres_Si_Fluida -> root_Altres_Si_Fluida_0 [label=0]
+	root_Altres_Si_Fluida_0_1 [label=any_naixement]
+	root_Altres_Si_Fluida_0 -> root_Altres_Si_Fluida_0_1 [label=1]
+	"root_Altres_Si_Fluida_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_0_1 -> "root_Altres_Si_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Altres_Si_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_0_1 -> "root_Altres_Si_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Fluida_0_0 [label=any_naixement]
+	root_Altres_Si_Fluida_0 -> root_Altres_Si_Fluida_0_0 [label=0]
+	"root_Altres_Si_Fluida_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_0_0 -> "root_Altres_Si_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Altres_Si_Fluida_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Fluida_0_0 -> "root_Altres_Si_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Densa [label="Romàntic"]
+	root_Altres_Si -> root_Altres_Si_Densa [label=Densa]
+	root_Altres_Si_Densa_1 [label="Ciència Ficció"]
+	root_Altres_Si_Densa -> root_Altres_Si_Densa_1 [label=1]
+	root_Altres_Si_Densa_1_1 [label=any_naixement]
+	root_Altres_Si_Densa_1 -> root_Altres_Si_Densa_1_1 [label=1]
+	"root_Altres_Si_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_1_1 -> "root_Altres_Si_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Altres_Si_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_1_1 -> "root_Altres_Si_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Densa_1_0 [label=any_naixement]
+	root_Altres_Si_Densa_1 -> root_Altres_Si_Densa_1_0 [label=0]
+	"root_Altres_Si_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_1_0 -> "root_Altres_Si_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Altres_Si_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_1_0 -> "root_Altres_Si_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Densa_0 [label="Ciència Ficció"]
+	root_Altres_Si_Densa -> root_Altres_Si_Densa_0 [label=0]
+	root_Altres_Si_Densa_0_1 [label=any_naixement]
+	root_Altres_Si_Densa_0 -> root_Altres_Si_Densa_0_1 [label=1]
+	"root_Altres_Si_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_0_1 -> "root_Altres_Si_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Altres_Si_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_0_1 -> "root_Altres_Si_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_Si_Densa_0_0 [label=any_naixement]
+	root_Altres_Si_Densa_0 -> root_Altres_Si_Densa_0_0 [label=0]
+	"root_Altres_Si_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_0_0 -> "root_Altres_Si_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Altres_Si_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Si_Densa_0_0 -> "root_Altres_Si_Densa_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent [label=pref_tipus_lectura]
+	root_Altres -> root_Altres_Indiferent [label=Indiferent]
+	root_Altres_Indiferent_Indiferent [label="Romàntic"]
+	root_Altres_Indiferent -> root_Altres_Indiferent_Indiferent [label=Indiferent]
+	root_Altres_Indiferent_Indiferent_1 [label="Ciència Ficció"]
+	root_Altres_Indiferent_Indiferent -> root_Altres_Indiferent_Indiferent_1 [label=1]
+	root_Altres_Indiferent_Indiferent_1_1 [label=any_naixement]
+	root_Altres_Indiferent_Indiferent_1 -> root_Altres_Indiferent_Indiferent_1_1 [label=1]
+	"root_Altres_Indiferent_Indiferent_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_1_1 -> "root_Altres_Indiferent_Indiferent_1_1_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Indiferent_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_1_1 -> "root_Altres_Indiferent_Indiferent_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Indiferent_1_0 [label=any_naixement]
+	root_Altres_Indiferent_Indiferent_1 -> root_Altres_Indiferent_Indiferent_1_0 [label=0]
+	"root_Altres_Indiferent_Indiferent_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_1_0 -> "root_Altres_Indiferent_Indiferent_1_0_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Indiferent_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_1_0 -> "root_Altres_Indiferent_Indiferent_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Indiferent_0 [label="Ciència Ficció"]
+	root_Altres_Indiferent_Indiferent -> root_Altres_Indiferent_Indiferent_0 [label=0]
+	root_Altres_Indiferent_Indiferent_0_1 [label=any_naixement]
+	root_Altres_Indiferent_Indiferent_0 -> root_Altres_Indiferent_Indiferent_0_1 [label=1]
+	"root_Altres_Indiferent_Indiferent_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_0_1 -> "root_Altres_Indiferent_Indiferent_0_1_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Indiferent_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_0_1 -> "root_Altres_Indiferent_Indiferent_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Indiferent_0_0 [label=any_naixement]
+	root_Altres_Indiferent_Indiferent_0 -> root_Altres_Indiferent_Indiferent_0_0 [label=0]
+	"root_Altres_Indiferent_Indiferent_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_0_0 -> "root_Altres_Indiferent_Indiferent_0_0_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Indiferent_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Indiferent_0_0 -> "root_Altres_Indiferent_Indiferent_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Fluida [label="Romàntic"]
+	root_Altres_Indiferent -> root_Altres_Indiferent_Fluida [label=Fluida]
+	root_Altres_Indiferent_Fluida_1 [label="Ciència Ficció"]
+	root_Altres_Indiferent_Fluida -> root_Altres_Indiferent_Fluida_1 [label=1]
+	root_Altres_Indiferent_Fluida_1_1 [label=any_naixement]
+	root_Altres_Indiferent_Fluida_1 -> root_Altres_Indiferent_Fluida_1_1 [label=1]
+	"root_Altres_Indiferent_Fluida_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_1_1 -> "root_Altres_Indiferent_Fluida_1_1_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Fluida_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_1_1 -> "root_Altres_Indiferent_Fluida_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Fluida_1_0 [label=any_naixement]
+	root_Altres_Indiferent_Fluida_1 -> root_Altres_Indiferent_Fluida_1_0 [label=0]
+	"root_Altres_Indiferent_Fluida_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_1_0 -> "root_Altres_Indiferent_Fluida_1_0_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Fluida_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_1_0 -> "root_Altres_Indiferent_Fluida_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Fluida_0 [label="Ciència Ficció"]
+	root_Altres_Indiferent_Fluida -> root_Altres_Indiferent_Fluida_0 [label=0]
+	root_Altres_Indiferent_Fluida_0_1 [label=any_naixement]
+	root_Altres_Indiferent_Fluida_0 -> root_Altres_Indiferent_Fluida_0_1 [label=1]
+	"root_Altres_Indiferent_Fluida_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_0_1 -> "root_Altres_Indiferent_Fluida_0_1_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Fluida_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_0_1 -> "root_Altres_Indiferent_Fluida_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Fluida_0_0 [label=any_naixement]
+	root_Altres_Indiferent_Fluida_0 -> root_Altres_Indiferent_Fluida_0_0 [label=0]
+	"root_Altres_Indiferent_Fluida_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_0_0 -> "root_Altres_Indiferent_Fluida_0_0_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Fluida_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Fluida_0_0 -> "root_Altres_Indiferent_Fluida_0_0_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Densa [label="Romàntic"]
+	root_Altres_Indiferent -> root_Altres_Indiferent_Densa [label=Densa]
+	root_Altres_Indiferent_Densa_1 [label="Ciència Ficció"]
+	root_Altres_Indiferent_Densa -> root_Altres_Indiferent_Densa_1 [label=1]
+	root_Altres_Indiferent_Densa_1_1 [label=any_naixement]
+	root_Altres_Indiferent_Densa_1 -> root_Altres_Indiferent_Densa_1_1 [label=1]
+	"root_Altres_Indiferent_Densa_1_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_1_1 -> "root_Altres_Indiferent_Densa_1_1_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Densa_1_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_1_1 -> "root_Altres_Indiferent_Densa_1_1_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Densa_1_0 [label=any_naixement]
+	root_Altres_Indiferent_Densa_1 -> root_Altres_Indiferent_Densa_1_0 [label=0]
+	"root_Altres_Indiferent_Densa_1_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_1_0 -> "root_Altres_Indiferent_Densa_1_0_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Densa_1_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_1_0 -> "root_Altres_Indiferent_Densa_1_0_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Densa_0 [label="Ciència Ficció"]
+	root_Altres_Indiferent_Densa -> root_Altres_Indiferent_Densa_0 [label=0]
+	root_Altres_Indiferent_Densa_0_1 [label=any_naixement]
+	root_Altres_Indiferent_Densa_0 -> root_Altres_Indiferent_Densa_0_1 [label=1]
+	"root_Altres_Indiferent_Densa_0_1_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_0_1 -> "root_Altres_Indiferent_Densa_0_1_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Densa_0_1_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_0_1 -> "root_Altres_Indiferent_Densa_0_1_>= 2003" [label=">= 2003"]
+	root_Altres_Indiferent_Densa_0_0 [label=any_naixement]
+	root_Altres_Indiferent_Densa_0 -> root_Altres_Indiferent_Densa_0_0 [label=0]
+	"root_Altres_Indiferent_Densa_0_0_< 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_0_0 -> "root_Altres_Indiferent_Densa_0_0_< 2003" [label="< 2003"]
+	"root_Altres_Indiferent_Densa_0_0_>= 2003" [label="Subset Cases:
+ []" shape=box]
+	root_Altres_Indiferent_Densa_0_0 -> "root_Altres_Indiferent_Densa_0_0_>= 2003" [label=">= 2003"]
+}

@@ -1,7 +1,25 @@
 import streamlit as st
 import pandas as pd
 from cbr import CBR
+from Functions import *
 
+#Carreguem l'arbre de casos
+
+#Load
+
+PATH_FILE = "Decision_Tree"
+dt_instance = DecisionTree()
+dt = dt_instance.load(PATH_FILE)
+
+#graph = plot_tree(decision_tree_root)
+#graph.render('decision_tree', view=True)
+
+#To check that loading works:
+
+#case = data.iloc[0,:].to_dict()  #Select one case to check the subset where it is addressed at.
+#subset_cases_node = evaluate_case_through_tree(decision_tree_root,case)
+#for c in subset_cases_node.subset:
+#    print("Location: ",c,"\tCase id:",c.id_cas)
 
 
 ################ View  ################
@@ -42,18 +60,23 @@ def view(model):
         st.write(' ')
         st.write(' ')
         st.button('Nou',on_click=nou_call)
+        ncall = True
 
     with st.form('formulari1'): 
         col1,col2,col3 = st.columns([4,1,2],gap='medium')
 
         with col1:
             nom = st.text_input(label='Nom ✍🏼',value=nom)
+            if ncall:
+                model.set_user_name(nom)
 
         with col2:
-            dades['year'] = st.number_input('Any de naixement 🗓️',1900,2030,dades['year'])
+            any = st.number_input('Any de naixement 🗓️',1900,2030, dades['any_naixement'])
+            #dades['any_naixement'] = '< 2003' if (any < 2003) else '>= 2003'
+            dades['any_naixement'] = any
 
         with col3:
-            dades['sex']=st.radio('Gènere',model.get_sex_options(),horizontal=True, index=dades['sex'])
+            dades['genere_persona']=st.radio('Gènere',model.get_sex_options(),horizontal=True, index=dades['genere_persona'])
 
         col4,col5 = st.columns([5,4],gap='small')
         with col4:
@@ -68,12 +91,23 @@ def view(model):
             nous_llegits = st.data_editor(llegits,disabled=no_edit,column_config=new_config,hide_index=True)
    
         with col5:
-            dades['genre']=st.multiselect("Quins són els teus gèneres literaris preferits? ⭐️",model.get_genre_options(),default=dades['genre'])
-            dades['film']=st.radio('Prefereixes llibres adaptats al cinema? 🎥',model.get_film_options(),horizontal=True,index=dades['film'])
-            dades['bestseller']=st.radio('Prefereixes un Best Seller? 🎖️',model.get_bestseller_options(),horizontal=True,index=dades['bestseller'])
-            dades['saga']=st.radio("Prefereixes que el llibre formi part d'una saga? 🎭",model.get_saga_options(),horizontal=True,index=dades['saga'])
-            dades['reading']=st.radio('Quin tipus de lectura prefereixes? 📖',model.get_reading_options(),horizontal=True,index=dades['reading'])
-            dades['pages']=st.number_input('Màxim número de pàgines 📄',0,100000000,dades['pages'])
+            default=[]
+            for g in model.get_genre_options():
+                if dades[g]== 1:
+                    default.append(g)
+            generes =st.multiselect("Quins són els teus gèneres literaris preferits? ⭐️",model.get_genre_options(),default)
+            for g in generes:
+                dades[g] = 1
+            default_idi = []
+            for i in dades['idioma']:
+                default_idi.append(i)
+            dades['idioma']=st.multiselect("En quins idiomes prefereixes llegir? 🌎",model.get_language_options(),default_idi)
+            dades['idioma'] = set(dades['idioma'])
+            dades['pref_adaptacio_peli']=st.radio('Prefereixes llibres adaptats al cinema? 🎥',model.get_film_options(),horizontal=True,index=dades['pref_adaptacio_peli'])
+            dades['pref_best_seller']=st.radio('Prefereixes un Best Seller? 🎖️',model.get_bestseller_options(),horizontal=True,index=dades['pref_best_seller'])
+            dades['pref_sagues']=st.radio("Prefereixes que el llibre formi part d'una saga? 🎭",model.get_saga_options(),horizontal=True,index=dades['pref_sagues'])
+            dades['pref_tipus_lectura']=st.radio('Quin tipus de lectura prefereixes? 📖',model.get_reading_options(),horizontal=True,index=dades['pref_tipus_lectura'])
+            dades['pagines_max']=st.number_input('Màxim número de pàgines 📄',0,100000000,dades['pagines_max'])
         
         submitted = st.form_submit_button("Desa Canvis i Recomana",type='primary')
         if submitted:
@@ -87,6 +121,8 @@ def view(model):
     if st.session_state['mostrar_recomanacions']:
         with st.form('formulari2'):
             st.session_state['recomanacions'] = model.recomanacions(lector,dades)
+            #TRAÇA
+            #trace_data = model.get_trace_data()
             if len(st.session_state['recomanacions'])==0 :
                 st.subheader(':red[Amb les dades que em dones, no et puc recomenar cap llibre]')
             else:
@@ -105,6 +141,10 @@ def view(model):
                         st.write(f':white[*{writer}*]')
                         with st.expander('Raonament'):
                             st.write(st.session_state['recomanacions'][idx][2])
+                            st.dataframe(st.session_state['recomanacions'][idx][7],use_container_width=True)
+                            st.write(st.session_state['recomanacions'][idx][5])
+                            st.write(st.session_state['recomanacions'][idx][6])
+                            st.dataframe(st.session_state['recomanacions'][idx][8],use_container_width=True)
                         col1,col2 = st.columns(2)
                         with col1:
                             puntuacions[idx] = st.slider(noms_butons[idx],1,5,1)
@@ -115,7 +155,14 @@ def view(model):
             submitted = st.form_submit_button("Desa Valoracions",type='primary')
             if submitted:
                 for i in range(3):
-                    model.retain(lector,dades,st.session_state['recomanacions'][i][3],puntuacions[i],comprar[i])          
+                    case = model.adapted[i]
+                    case.set_id_case(model.id_case_1+i)
+                    case.set_puntuacio(puntuacions[i])
+                    case.set_comprat("Si" if comprar[i] else "No")
+                    model.retain(case)
+
+                #COMENTAR SI ES VOL PROVAR EL SISTEMA SENSE GUARDAR ELS CASOS A LA BASE DE CASOS
+                model.case_base.save(PATH_FILE)         
                 st.session_state['mostrar_recomanacions']=False 
                 st.rerun()
 
@@ -126,7 +173,7 @@ st.set_page_config( page_title='Llibres',
                     initial_sidebar_state="expanded")
 
 if 'model' not in st.session_state:
-  st.session_state['model'] = CBR()
+  st.session_state['model'] = CBR(case_base=dt)
 
 view(st.session_state['model'])
 
