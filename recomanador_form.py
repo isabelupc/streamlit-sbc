@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from cbr import CBR
 from Functions import *
+import time 
 
 #Carreguem l'arbre de casos
 
@@ -107,20 +108,24 @@ def view(model):
         
         submitted = st.form_submit_button("Desa Canvis i Recomana",type='primary')
         if submitted:
+            start_time = time.time()
             model.change_user_name(lector,nom)
             model.actualitzar_puntuacions(nous_llegits)
             model.delete_last_if_empty()
             st.session_state['mostrar_recomanacions']=True  
             st.session_state['idx_recomanacio'] = 0 
 
+
     ### Recomanacions     
     
     if st.session_state['mostrar_recomanacions']:
         with st.form('formulari2'):
+
             st.session_state['recomanacions'] = model.recomanacions(lector,dades)
             #TRAÇA
             #trace_data = model.get_trace_data()
-            if len(st.session_state['recomanacions'])==0 :
+            
+            if len(st.session_state['recomanacions']) < 3 :
                 st.subheader(':red[Amb les dades que em dones, no et puc recomenar cap llibre]')
             else:
                 st.subheader(':red[Les teves recomanacions]')
@@ -162,7 +167,8 @@ def view(model):
                 model.case_base.save(PATH_FILE)         
                 st.session_state['mostrar_recomanacions']=False 
                 st.rerun()
-
+            elapsed_time = time.time() - start_time
+            st.write(f"Temps de generació de recomanacions: {elapsed_time:.4f} segons")
 
 ## el set page s'ha de cridar només un cop i abans de qualsevol instrucció
 st.set_page_config( page_title='Llibres',

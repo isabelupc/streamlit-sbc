@@ -354,7 +354,6 @@ class CBR:
         #Retorna: Un set dels casos que compleixen el primer filtratge marcat per
         #data. Si aquest set és menor que tres, aleshores cercar el node fulla més proper
         #a l'arbre i agafar-ne els casos, fins que tinguem almenys 3 casos.
-
         subset_cases_node, list_parents = self.case_base.evaluate_case_through_tree(data,[self.case_base])
 
         #Si el node fulla corresponent no té prou casos (mínim 3) cerquem
